@@ -13,7 +13,7 @@ import java.sql.DriverManager;
  * @author Jose
  */
 public class ModeloBD {
-    private final String servidor="jdbc:mysql://localhost/parkingmvc";
+    private final String servidor="jdbc:mysql://localhost/parking_mvc";
     private final String usuario="root";
     private final String password="";
 
