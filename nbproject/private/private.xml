@@ -3,11 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasControlHorario.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasClientesCab.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ClientesCab.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/Cliente.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/vistas/VistaRegistroVehiculo.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasClientes.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/controladores/ControladorSalida.java</file>
             <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ModeloBD.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasClientesLin.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/ControladorHome.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/vistas/VistaRegistroCliente.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/ParkingMVC.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/controladores/ControladorRegistroVehiculo.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasParqueadero.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/vistas/VistaHome.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasVehiculos.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/vistas/VistaSalida.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/controladores/Controlador.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/Vehiculo.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/controladores/ControladorRegistroCliente.java</file>
+            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/vistas/Vista.java</file>
         </group>
     </open-files>
 </project-private>

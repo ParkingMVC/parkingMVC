@@ -33,10 +33,10 @@ public class ConsultasVehiculos extends ModeloBD {
             consultaSQL.setInt(3, vehiculo.getIdParqueadero());
             consultaSQL.setString(4, vehiculo.getMarca());
             consultaSQL.setString(5, vehiculo.getColor());
-            consultaSQL.setString(5, vehiculo.getModelo());
-            consultaSQL.setString(5, vehiculo.getEstado());
-            consultaSQL.setString(5, vehiculo.getHoraIngreso());
-            consultaSQL.setString(5, vehiculo.getHoraSalida());
+            consultaSQL.setString(6, vehiculo.getModelo());
+            consultaSQL.setInt(7, vehiculo.getEstado());
+            consultaSQL.setString(8, vehiculo.getHoraIngreso());
+            consultaSQL.setString(9, vehiculo.getHoraSalida());
             
             //Ejecuto la consulta
             int resultado = consultaSQL.executeUpdate();
@@ -49,6 +49,30 @@ public class ConsultasVehiculos extends ModeloBD {
             }
         }catch(Exception error){
             System.out.println("Upppss!!" + error);
+            return false;
+        }
+    }
+    
+    public boolean actualizarVehiculo(Vehiculo vehiculo){
+        Connection conexion = conectarBD();
+        String query = "UPDATE vehiculo SET HoraSalida = ?, Estado = 0 WHERE placa = ?";
+        
+        try {
+            consultaSQL = conexion.prepareStatement(query);
+            
+            consultaSQL.setString(1, vehiculo.getHoraSalida());
+            consultaSQL.setString(2, vehiculo.getPlaca());
+            consultaSQL.setInt(3, vehiculo.getEstado());
+            
+            int resultado = consultaSQL.executeUpdate();
+            
+            if(resultado>0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch( Exception error){
+            System.out.println("Uppps" + error);
             return false;
         }
     }
@@ -78,7 +102,7 @@ public class ConsultasVehiculos extends ModeloBD {
                 vehiculo.setMarca(resultadoSQL.getString("Marca"));
                 vehiculo.setColor(resultadoSQL.getString("Color"));
                 vehiculo.setModelo(resultadoSQL.getString("Modelo"));
-                vehiculo.setEstado(resultadoSQL.getString("Estado"));
+                vehiculo.setEstado(resultadoSQL.getInt("Estado"));
                 vehiculo.setHoraIngreso(resultadoSQL.getString("Hora Ingreso"));
                 vehiculo.setHoraSalida(resultadoSQL.getString("Hora Salida"));
                 

@@ -16,14 +16,14 @@ public class Vehiculo {
     private String marca;
     private String color;
     private String modelo;
-    private String estado;
+    private int estado;
     private String horaIngreso;
     private String horaSalida;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String placa, int idCliente, int idParqueadero, String marca, String color, String modelo, String estado, String horaIngreso, String horaSalida) {
+    public Vehiculo(String placa, int idCliente, int idParqueadero, String marca, String color, String modelo, int estado, String horaIngreso, String horaSalida) {
         this.placa = placa;
         this.idCliente = idCliente;
         this.idParqueadero = idParqueadero;
@@ -83,11 +83,11 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 

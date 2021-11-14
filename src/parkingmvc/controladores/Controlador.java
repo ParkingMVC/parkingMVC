@@ -8,7 +8,8 @@ package parkingmvc.controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import parkingmvc.modelos.ModeloBD;
-import parkingmvc.vistas.Vista;
+import parkingmvc.vistas.VistaRegistroCliente;
+import parkingmvc.vistas.VistaRegistroVehiculo;
 
 /**
  *
@@ -17,12 +18,17 @@ import parkingmvc.vistas.Vista;
 public class Controlador implements ActionListener {
     
     ModeloBD modelo = new ModeloBD();
-    Vista vista = new Vista();
 
-    public Controlador(ModeloBD modelo, Vista vista) {
+    VistaRegistroCliente vistaRegistroCliente = new VistaRegistroCliente();
+    VistaRegistroVehiculo vistaRegistroVehiculo = new VistaRegistroVehiculo();
+  
+
+    public Controlador(ModeloBD modelo, VistaRegistroCliente vistaRegistroCliente) {
         this.modelo=modelo;
-        this.vista=vista;
-        vista.boton.addActionListener(this);
+        this.vistaRegistroCliente=vistaRegistroCliente;
+        vistaRegistroCliente.botonRegistroCliente.addActionListener(this);
+        vistaRegistroVehiculo.botonRegistroVehiculo.addActionListener(this);
+        
     }
 
     @Override
