@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import parkingmvc.modelos.ModeloBD;
 import parkingmvc.vistas.VistaRegistroCliente;
 import parkingmvc.vistas.VistaRegistroVehiculo;
+import parkingmvc.vistas.VistaSalida;
 
 /**
  *
@@ -20,14 +21,18 @@ public class Controlador implements ActionListener {
     ModeloBD modelo = new ModeloBD();
 
     VistaRegistroCliente vistaRegistroCliente = new VistaRegistroCliente();
-    VistaRegistroVehiculo vistaRegistroVehiculo = new VistaRegistroVehiculo();
-  
+    //VistaRegistroVehiculo vistaRegistroVehiculo = new VistaRegistroVehiculo();
+    VistaSalida vistaSalida = new VistaSalida();
 
-    public Controlador(ModeloBD modelo, VistaRegistroCliente vistaRegistroCliente) {
+    public Controlador(ModeloBD modelo, VistaSalida vistaSalida) {
         this.modelo=modelo;
-        this.vistaRegistroCliente=vistaRegistroCliente;
-        vistaRegistroCliente.botonRegistroCliente.addActionListener(this);
-        vistaRegistroVehiculo.botonRegistroVehiculo.addActionListener(this);
+//        this.vistaRegistroCliente=vistaRegistroCliente;
+        this.vistaSalida = vistaSalida;
+        vistaSalida.botonSalida.addActionListener(this);
+           
+            vistaSalida.setVisible(true);
+       // vistaRegistroCliente.botonRegistroCliente.addActionListener(this);
+        //vistaRegistroVehiculo.botonRegistroVehiculo.addActionListener(this);
         
     }
 

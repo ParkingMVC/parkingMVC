@@ -107,8 +107,8 @@ public class VistaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonAgregar;
-    public javax.swing.JTextField cajaIdEscuderia;
+    private javax.swing.JButton botonAgregar;
+    private javax.swing.JTextField cajaIdEscuderia;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

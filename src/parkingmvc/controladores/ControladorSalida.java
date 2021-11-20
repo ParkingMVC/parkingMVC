@@ -16,6 +16,7 @@ import parkingmvc.modelos.Cliente;
 import parkingmvc.modelos.ConsultasClientes;
 import parkingmvc.modelos.ConsultasParqueadero;
 import parkingmvc.modelos.ConsultasVehiculos;
+import parkingmvc.modelos.Parqueadero;
 import parkingmvc.modelos.Vehiculo;
 import parkingmvc.vistas.VistaSalida;
 
@@ -28,6 +29,7 @@ public class ControladorSalida implements ActionListener {
     VistaSalida vistaSalida = new VistaSalida();
     Cliente cliente = new Cliente();
     Vehiculo vehiculo = new Vehiculo();
+    Parqueadero parqueadero = new Parqueadero();
 
     public ControladorSalida(VistaSalida vistaSalida, Cliente cliente, Vehiculo vehiculo) {
         this.vistaSalida = vistaSalida;
@@ -35,6 +37,7 @@ public class ControladorSalida implements ActionListener {
         this.vehiculo = vehiculo;
 
         vistaSalida.botonSalida.addActionListener(this);
+       
     }
 
     @Override
@@ -43,36 +46,49 @@ public class ControladorSalida implements ActionListener {
         ConsultasVehiculos consultasVehiculos = new ConsultasVehiculos();
         ConsultasParqueadero consultasParqueadero = new ConsultasParqueadero();
 
-        //Obtener la fecha de salida
-        vehiculo = consultasVehiculos.buscarVehiculo(vistaSalida.placa.getText());
-        String fechaEntrada = vehiculo.getHoraIngreso();
+        if (consultasVehiculos.buscarVehiculoSalida(vistaSalida.placa.getText()) != null) {
+            //Obtener la fecha de salida
+            vehiculo = consultasVehiculos.buscarVehiculoSalida(vistaSalida.placa.getText());
 
-        try {
-            Date entrada = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(fechaEntrada);
-            Date salida = new Date();
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String fechaSalida = formato.format(salida);
+            String fechaEntrada = vehiculo.getHoraIngreso();
 
-            long tiempoDiferencia = salida.getTime() - entrada.getTime();
-            TimeUnit unidadTiempo = TimeUnit.MINUTES;
+            try {
+                Date entrada = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(fechaEntrada);
+                Date salida = new Date();
+                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String fechaSalida = formato.format(salida);
 
-            long tiempoVehiculo = unidadTiempo.convert(tiempoDiferencia, TimeUnit.MILLISECONDS);
+                long tiempoDiferencia = salida.getTime() - entrada.getTime();
+                TimeUnit unidadTiempo = TimeUnit.MINUTES;
 
-            vehiculo.setHoraSalida(fechaSalida);
+                long tiempoVehiculo = unidadTiempo.convert(tiempoDiferencia, TimeUnit.MILLISECONDS);
 
-            if (consultasVehiculos.actualizarVehiculo(vehiculo)) {
+                vehiculo.setHoraSalida(fechaSalida);
+                vehiculo.setEstado(0);
 
-                JOptionPane.showMessageDialog(null, "Exito en el salida, te demoraste: " + tiempoVehiculo);
+                if (consultasVehiculos.actualizarVehiculo(vehiculo)) {
 
-            } else {
+                    JOptionPane.showMessageDialog(null, "Exito en el salida, te demoraste: " + tiempoVehiculo);
+                    System.out.println("El valor a pagar es: $" + tiempoVehiculo * 150);
 
-                JOptionPane.showMessageDialog(null, "Error en el salida");
+                    parqueadero = consultasParqueadero.buscarParqueadero(1);
+                    int cuposDisponiblesNuevos = parqueadero.getCuposDisponibles() + 1;
+                    int cuposReservadosNuevos = parqueadero.getCuposReservados() - 1;
+                    consultasParqueadero.actualizarParqueadero(cuposDisponiblesNuevos, cuposReservadosNuevos);
 
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Error en el salida");
+
+                }
+
+            } catch (ParseException error) {
+                System.out.println("Uppps!" + error);
             }
-
-        } catch (ParseException error) {
-            System.out.println("Uppps!" + error);
+        } else {
+            JOptionPane.showMessageDialog(null, "Vehiculo No existe");
         }
+
     }
 
 }

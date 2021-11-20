@@ -44,6 +44,7 @@ public class ControladorRegistroVehiculo implements ActionListener {
 
         vistaRegistroVehiculo.botonRegistroVehiculo.addActionListener(this);
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -65,11 +66,16 @@ public class ControladorRegistroVehiculo implements ActionListener {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String fechaEntrada = formato.format(entrada);
         vehiculo.setHoraIngreso(fechaEntrada);
+        
 
         if (consultasVehiculos.registrarVehiculo(vehiculo)) {
-            JOptionPane.showMessageDialog(null, "Exito en el registro");
-            consultasParqueadero.
+           // JOptionPane.showMessageDialog(null, "Exito en el registro");
+            parqueadero = consultasParqueadero.buscarParqueadero(1);
+            int cuposDisponiblesNuevos = parqueadero.getCuposDisponibles()-1;
+            int cuposReservadosNuevos = parqueadero.getCuposReservados()+1;
+            consultasParqueadero.actualizarParqueadero(cuposDisponiblesNuevos, cuposReservadosNuevos);
             
+            System.out.println("PARQUEADERO" + parqueadero.getCuposDisponibles());
             //VistaRegistroVehiculo vistaRegistroVehiculo = new VistaRegistroVehiculo();
             //vistaRegistroCliente.setVisible(false);
             //vistaRegistroVehiculo.setVisible(true);

@@ -67,9 +67,9 @@ public class ConsultasParqueadero extends ModeloBD {
 
             if (resultadoSQL.next()) {
                 parqueadero.setId(resultadoSQL.getInt("Id"));
-                parqueadero.setCuposTotales(resultadoSQL.getInt("Cupos Totales"));
-                parqueadero.setCuposDisponibles(resultadoSQL.getInt("Cupos Disponibles"));
-                parqueadero.setCuposReservados(resultadoSQL.getInt("Cupos Reservados"));
+                parqueadero.setCuposTotales(resultadoSQL.getInt("CuposTotales"));
+                parqueadero.setCuposDisponibles(resultadoSQL.getInt("CuposDisponibles"));
+                parqueadero.setCuposReservados(resultadoSQL.getInt("CuposReservados"));
 
                 return parqueadero;
             } else {
@@ -81,5 +81,30 @@ public class ConsultasParqueadero extends ModeloBD {
             return null;
         }
     }
+    
+    public boolean actualizarParqueadero(int disponiblesNuevos, int reservadosNuevos){
+        Connection conexion = conectarBD();
+        String query = "UPDATE parqueadero SET CuposDisponibles = ?, CuposReservados = ? WHERE id = 1";
+        
+        try {
+            consultaSQL = conexion.prepareStatement(query);
+            
+            consultaSQL.setInt(1,disponiblesNuevos);
+            consultaSQL.setInt(2, reservadosNuevos);
+ 
+            
+            int resultado = consultaSQL.executeUpdate();
+            
+            if(resultado>0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch( Exception error){
+            System.out.println("Uppps" + error);
+            return false;
+        }
+        
+    } 
 
 }

@@ -54,15 +54,18 @@ public class ConsultasVehiculos extends ModeloBD {
     }
     
     public boolean actualizarVehiculo(Vehiculo vehiculo){
+        System.out.println(vehiculo.getHoraSalida());
+                System.out.println(vehiculo.getEstado());
+                        System.out.println(vehiculo.getPlaca());
         Connection conexion = conectarBD();
-        String query = "UPDATE vehiculo SET HoraSalida = ?, Estado = 0 WHERE placa = ?";
+        String query = "UPDATE vehiculo SET Estado = ?, HoraSalida = ? WHERE placa = ?";
         
         try {
             consultaSQL = conexion.prepareStatement(query);
             
-            consultaSQL.setString(1, vehiculo.getHoraSalida());
-            consultaSQL.setString(2, vehiculo.getPlaca());
-            consultaSQL.setInt(3, vehiculo.getEstado());
+            consultaSQL.setInt(1, vehiculo.getEstado());
+            consultaSQL.setString(2, vehiculo.getHoraSalida());  
+            consultaSQL.setString(3, vehiculo.getPlaca());
             
             int resultado = consultaSQL.executeUpdate();
             
@@ -103,8 +106,47 @@ public class ConsultasVehiculos extends ModeloBD {
                 vehiculo.setColor(resultadoSQL.getString("Color"));
                 vehiculo.setModelo(resultadoSQL.getString("Modelo"));
                 vehiculo.setEstado(resultadoSQL.getInt("Estado"));
-                vehiculo.setHoraIngreso(resultadoSQL.getString("Hora Ingreso"));
-                vehiculo.setHoraSalida(resultadoSQL.getString("Hora Salida"));
+                vehiculo.setHoraIngreso(resultadoSQL.getString("HoraIngreso"));
+                vehiculo.setHoraSalida(resultadoSQL.getString("HoraSalida"));
+                
+                return vehiculo;
+            }else{
+                return null;
+            }
+        }catch(Exception error){
+            System.out.println("Upppss!!" + error);
+            return null;
+        }
+    }
+    
+    public Vehiculo buscarVehiculoSalida(String placa){
+        Connection conexion = conectarBD();
+        String query = "SELECT * FROM Vehiculo WHERE Placa=? AND Estado >0";
+        
+        try{
+            //preparar conexión  
+            consultaSQL = conexion.prepareStatement(query);
+            
+            //ajusto la consulta
+            consultaSQL.setString(1, placa);
+            
+            //Ejecutar la consulta
+            resultadoSQL = consultaSQL.executeQuery();
+            
+            //Organizar el resultado
+            Vehiculo vehiculo = new Vehiculo();
+            
+            //Llenar el Cliente
+            if(resultadoSQL.next()){
+                vehiculo.setPlaca(resultadoSQL.getString("Placa"));
+                vehiculo.setIdCliente(resultadoSQL.getInt("IdCliente"));
+                vehiculo.setIdParqueadero(resultadoSQL.getInt("IdParqueadero"));
+                vehiculo.setMarca(resultadoSQL.getString("Marca"));
+                vehiculo.setColor(resultadoSQL.getString("Color"));
+                vehiculo.setModelo(resultadoSQL.getString("Modelo"));
+                vehiculo.setEstado(resultadoSQL.getInt("Estado"));
+                vehiculo.setHoraIngreso(resultadoSQL.getString("HoraIngreso"));
+                vehiculo.setHoraSalida(resultadoSQL.getString("HoraSalida"));
                 
                 return vehiculo;
             }else{

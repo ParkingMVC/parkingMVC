@@ -7,11 +7,13 @@ package parkingmvc;
 
 import parkingmvc.controladores.Controlador;
 import parkingmvc.controladores.ControladorRegistroCliente;
+import parkingmvc.controladores.ControladorSalida;
 import parkingmvc.modelos.Cliente;
 import parkingmvc.modelos.ModeloBD;
 import parkingmvc.modelos.Vehiculo;
 import parkingmvc.vistas.Vista;
 import parkingmvc.vistas.VistaRegistroCliente;
+import parkingmvc.vistas.VistaSalida;
 
 /**
  *
@@ -27,9 +29,11 @@ public class ParkingMVC {
         Cliente cliente = new Cliente();
         Vehiculo vehiculo = new Vehiculo();
         VistaRegistroCliente vistaCliente = new VistaRegistroCliente();
-        vistaCliente.setVisible(true);
+        VistaSalida vistaSalida = new VistaSalida();
+        vistaCliente.setVisible(false);
+        vistaSalida.setVisible(true);
         ControladorRegistroCliente controladorCliente = new ControladorRegistroCliente(vistaCliente, cliente);
-        
+        ControladorSalida controladorSalida = new ControladorSalida(vistaSalida, cliente, vehiculo);
     }
     
 }
