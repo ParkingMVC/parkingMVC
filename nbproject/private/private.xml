@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/parkingmvc/modelos/ModeloConsultaCliente.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>26</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasControlHorario.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasClientesCab.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ClientesCab.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ModeloBD.java</file>
-            <file>file:/Users/lau/NetBeansProjects/parkingMVC/src/parkingmvc/modelos/ConsultasClientesLin.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -7,7 +7,7 @@ package parkingmvc;
 
 import parkingmvc.controladores.Controlador;
 import parkingmvc.modelos.ModeloBD;
-import parkingmvc.vistas.Vista;
+import parkingmvc.vistas.VistaInicio;
 
 /**
  *
@@ -20,11 +20,12 @@ public class ParkingMVC {
      */
     public static void main(String[] args) {
         
-        ModeloBD modelo = new ModeloBD();
-        Vista vista = new Vista();
-        vista.setVisible(true);
-        Controlador controlador = new Controlador(modelo, vista);
+        ModeloBD modeloDB = new ModeloBD();
         
+        VistaInicio vistaInicio = new VistaInicio();
+        vistaInicio.setVisible(true);
+        
+        Controlador controlador = new Controlador(modeloDB, vistaInicio);
     }
     
 }

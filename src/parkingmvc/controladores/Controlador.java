@@ -8,7 +8,7 @@ package parkingmvc.controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import parkingmvc.modelos.ModeloBD;
-import parkingmvc.vistas.Vista;
+import parkingmvc.vistas.VistaInicio;
 
 /**
  *
@@ -16,22 +16,19 @@ import parkingmvc.vistas.Vista;
  */
 public class Controlador implements ActionListener {
     
-    ModeloBD modelo = new ModeloBD();
-    Vista vista = new Vista();
+    ModeloBD modeloDB = new ModeloBD();
+    VistaInicio vistaInicio = new VistaInicio();
 
-    public Controlador(ModeloBD modelo, Vista vista) {
-        this.modelo=modelo;
-        this.vista=vista;
-        vista.boton.addActionListener(this);
+    public Controlador(ModeloBD modeloDB, VistaInicio vistaInicio) {
+        this.modeloDB = modeloDB;
+        this.vistaInicio = vistaInicio;
+        vistaInicio.boton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         
-        modelo.conectarBD();
-        
+        modeloDB.conectarBD();
     }
-    
-    
     
 }

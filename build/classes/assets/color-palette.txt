@@ -1,0 +1,43 @@
+
+
+//-------------------------------------------------
+
+PALETA DE COLORES EN CSS
+
+//-------------------------------------------------
+
+/* Color Theme Swatches in Hex */
+.Parking-App-1-hex { color: #212830; }
+.Parking-App-2-hex { color: #383D45; }
+.Parking-App-3-hex { color: #00AEB5; }
+.Parking-App-4-hex { color: #6CD4D9; }
+.Parking-App-5-hex { color: #EDEDED; }
+
+/* Color Theme Swatches in RGBA */
+.Parking-App-1-rgba { color: rgba(33, 39, 48, 1); }
+.Parking-App-2-rgba { color: rgba(55, 61, 68, 1); }
+.Parking-App-3-rgba { color: rgba(0, 173, 181, 1); }
+.Parking-App-4-rgba { color: rgba(108, 212, 216, 1); }
+.Parking-App-5-rgba { color: rgba(237, 237, 237, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Parking-App-1-hsla { color: hsla(214, 18, 16, 1); }
+.Parking-App-2-hsla { color: hsla(214, 10, 24, 1); }
+.Parking-App-3-hsla { color: hsla(182, 100, 35, 1); }
+.Parking-App-4-hsla { color: hsla(182, 58, 63, 1); }
+.Parking-App-5-hsla { color: hsla(0, 0, 93, 1); }
+
+
+//-------------------------------------------------
+
+PALETA DE COLORES EN XML
+
+//-------------------------------------------------
+
+<palette>
+<color name='Parking-App-1' rgb='212830' r='33' g='39' b='48' />
+<color name='Parking-App-2' rgb='383D45' r='55' g='61' b='68' />
+<color name='Parking-App-3' rgb='00AEB5' r='0' g='173' b='181' />
+<color name='Parking-App-4' rgb='6CD4D9' r='108' g='212' b='216' />
+<color name='Parking-App-5' rgb='EDEDED' r='237' g='237' b='237' />
+</palette>
